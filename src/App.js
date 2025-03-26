@@ -1,16 +1,12 @@
-import React from 'react';
-import { useEmpleados } from './hooks/useEmpleados';
-import TablaEmpleados from './components/TablaEmpleados';
-import ModalEmpleado from './components/ModalEmpleado';
-import 'bootstrap/dist/js/bootstrap.bundle.min';
+import React from "react";
+import { useEmpleados } from "./hooks/useEmpleados";
+import TablaEmpleados from "./components/TablaEmpleados";
+import ModalEmpleado from "./components/ModalEmpleado";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 const App = () => {
-  const {
-    empleados,
-    nuevoEmpleado,
-    setNuevoEmpleado,
-    guardarEmpleado
-  } = useEmpleados();
+  const { empleados, nuevoEmpleado, setNuevoEmpleado, guardarEmpleado } =
+    useEmpleados();
 
   return (
     <div className="container mt-5">
@@ -20,7 +16,8 @@ const App = () => {
         data-bs-toggle="modal"
         data-bs-target="#modalEmpleado"
       >
-        <i className="fas fa-user-plus"></i> Agregar Empleado
+        <i className="fas fa-user-plus me-2"></i>
+        Agregar Empleado
       </button>
 
       <TablaEmpleados empleados={empleados} />
