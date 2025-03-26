@@ -1,6 +1,6 @@
 import React from 'react';
-import Entrada from './Entrada';
 import Swal from 'sweetalert2';
+import CampoConIcono from './CampoConIcono';
 
 const ModalEmpleado = ({ nuevoEmpleado, setNuevoEmpleado, guardarEmpleado }) => {
   const handleChange = (e) => {
@@ -12,11 +12,10 @@ const ModalEmpleado = ({ nuevoEmpleado, setNuevoEmpleado, guardarEmpleado }) => 
     e.preventDefault();
     const { nombre, dni, direccion, email } = nuevoEmpleado;
 
-    // Verifica si hay campos vacíos
     if (!nombre || !dni || !direccion || !email) {
       Swal.fire({
-        title: "Tiene campos vacios ",
-        text: "Por favor completar todos los campos",
+        title: "Campos Vacios",
+        text: "Por favor completar los campos.",
         icon: "error"
       });
       return;
@@ -33,15 +32,21 @@ const ModalEmpleado = ({ nuevoEmpleado, setNuevoEmpleado, guardarEmpleado }) => 
             <h5 className="modal-title">Agregar Empleado</h5>
             <button className="btn-close" type="button" data-bs-dismiss="modal"></button>
           </div>
+
           <div className="modal-body">
-            <Entrada label="Nombre" name="nombre" type="text" value={nuevoEmpleado.nombre} onChange={handleChange} />
-            <Entrada label="DNI" name="dni" type="text" value={nuevoEmpleado.dni} onChange={handleChange} />
-            <Entrada label="Dirección" name="direccion" type="text" value={nuevoEmpleado.direccion} onChange={handleChange} />
-            <Entrada label="Email" name="email" type="email" value={nuevoEmpleado.email} onChange={handleChange} />
+            <CampoConIcono label="Nombre" name="nombre" type="text" icono="fa-user" value={nuevoEmpleado.nombre} onChange={handleChange} />
+            <CampoConIcono label="DNI" name="dni" type="text" icono="fa-id-card" value={nuevoEmpleado.dni} onChange={handleChange} />
+            <CampoConIcono label="Dirección" name="direccion" type="text" icono="fa-map-marker-alt" value={nuevoEmpleado.direccion} onChange={handleChange} />
+            <CampoConIcono label="Email" name="email" type="email" icono="fa-envelope" value={nuevoEmpleado.email} onChange={handleChange} />
           </div>
+
           <div className="modal-footer">
-            <button className="btn btn-primary" type="submit">Guardar</button>
-            <button className="btn btn-secondary" type="button" data-bs-dismiss="modal">Cancelar</button>
+            <button className="btn btn-primary" type="submit">
+              <i className="fas fa-save me-2"></i> Guardar
+            </button>
+            <button className="btn btn-secondary" type="button" data-bs-dismiss="modal">
+              Cancelar
+            </button>
           </div>
         </form>
       </div>
