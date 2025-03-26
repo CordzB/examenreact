@@ -1,4 +1,3 @@
-// src/components/ModalEmpleado.jsx
 import React from 'react';
 import Entrada from './Entrada';
 import Swal from 'sweetalert2';
@@ -13,7 +12,7 @@ const ModalEmpleado = ({ nuevoEmpleado, setNuevoEmpleado, guardarEmpleado }) => 
     e.preventDefault();
     const { nombre, dni, direccion, email } = nuevoEmpleado;
 
-    // Verificamos si hay campos vacíos
+    // Verifica si hay campos vacíos
     if (!nombre || !dni || !direccion || !email) {
       Swal.fire({
         title: "Tiene campos vacios ",
